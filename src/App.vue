@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <h4>{{msg}}</h4>
-    <Todos v-bind:todos="todos"></Todos>
+    <Todos v-bind:todos="todos" v-on:delete-todoItem="delItem"></Todos>
   </div>
 </template>
 
@@ -17,22 +16,28 @@ export default {
       todos: [
         {
           id: 1,
-          title: "first",
-          completed: false
+          title: "Learn Vuejs",
+          completed: true
         },
         {
           id: 2,
-          title: "second",
+          title: "Learn Django",
           completed: false
         },
         {
           id: 3,
-          title: "third",
+          title: "Learn Wordpress Theme Development",
           completed: false
         }
       ],
       msg: "Hello World"
     };
+  },
+  methods: {
+    delItem(id){
+      this.todos = this.todos.filter(todo => todo.id !== id);
+      // console.log(id)
+    }
   }
 };
 </script>
