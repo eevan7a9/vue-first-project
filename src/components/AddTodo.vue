@@ -8,7 +8,7 @@
  </template>
 
  <script>
- import uuid from "uuid";
+//  import uuid from "uuid";
  export default {
      name: "AddTodo",
      data(){
@@ -20,7 +20,7 @@
          addTodo(event){
             event.preventDefault();
             const createdTodo = {
-                id:uuid.v4(),
+                // id:uuid.v4(), not needed when we use jsonplaceHolder
                 title: this.title,
                 completed: false,
             }
